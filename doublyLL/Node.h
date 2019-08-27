@@ -6,10 +6,14 @@ class Node
 public:
 	Node();
 	~Node();
+	int getSize();
+	Node<T>* getNext();
+	Node<T>* getPrev();
+
 private:
 	int m_size;
 	Node<T>* m_next;	//pointer to the next node
 	Node<T>* m_prev;	//pointer to the previous node
-	T* m_payload;	//pointer to the value the node is carrying
+	T m_payload;	//pointer to the value the node is carrying
 };
 
