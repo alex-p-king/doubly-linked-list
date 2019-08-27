@@ -1,30 +1,52 @@
 #include "Node.h"
 
-
-template <typename T>
-Node<T>::Node()
+Node::Node()
 {
-	m_size++;
 	m_next = nullptr;
 	m_prev = nullptr;
-	m_payload = 0;
 }
 
-template <typename T>
-Node<T>::~Node<T>()
+Node::Node(Node * n, bool next, int val)
 {
-	m_size--;
+	(next == true) ? (m_next = n) : (m_prev = n);
+	m_value = val;
+	
+}
+
+Node::Node(Node * p, Node * n, int val)
+{
+	m_next = n;
+	m_prev = p;
+	m_value = val;
+}
+
+Node::~Node()
+{
 	m_next = nullptr;
 	m_prev = nullptr;
-	m_payload = 0;
 }
 
-template<typename T>
-int Node<T>::getSize()
+Node * Node::getNext() const
 {
-	return(m_size);
+	return m_next;
 }
 
+Node * Node::getPrev() const
+{
+	return m_prev;
+}
 
+void Node::setNext(Node * next)
+{
+	m_next = next;
+}
 
+void Node::setPrev(Node * prev)
+{
+	m_prev = prev;
+}
 
+void Node::setValue(int val)
+{
+	m_value = val;
+}

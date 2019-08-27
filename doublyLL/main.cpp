@@ -3,6 +3,7 @@
 
 int main() {
 	std::cout << "Hello World!" << "\n";
-	//Node<int> myNode;
+	Node myNode;
+	std::cout << myNode.getSize() << "\n";
 	std::cin.get();
 }
