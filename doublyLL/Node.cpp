@@ -50,3 +50,8 @@ void Node::setValue(int val)
 {
 	m_value = val;
 }
+
+void Node::printNode()
+{
+	std::cout << m_value << " ";
+}

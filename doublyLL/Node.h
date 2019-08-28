@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 
 class Node
 {
@@ -14,6 +15,7 @@ public:
 	void setNext(Node* next);
 	void setPrev(Node* prev);
 	void setValue(int val);
+	void printNode();
 
 private:
 	int m_value = 0;
