@@ -43,25 +43,35 @@ void DoublyLinkedList::insert(int val)
 bool DoublyLinkedList::dllDelete(int val)
 {
 	int pos = 0;
-	Node* temp;
+	Node* temp = m_front;
 	while (pos < m_size) {
-		if (m_front->getValue() == val) {
-			if (pos == 0) {
-				temp = m_front;
-				m_front = m_front->getNext();
-				m_front->setPrev(nullptr);
-				delete temp;
-				return true;
-			}
-			else if (pos == m_size) {
-				temp = m_front;
-				m_front = m_front->getPrev();
-				m_front->setNext(nullptr);
-				delete temp;
-				return true;
-			}
+		if (pos == 0) {
+			m_front = m_front->getNext();
+			m_front->setPrev(nullptr);
+			delete temp;
+			m_size--;
+			return true;
 		}
-		m_front = m_front->getNext();
+		else if (pos == m_size) {
+			temp = m_back;
+			m_back = m_back->getPrev();
+			m_back->setNext(nullptr);
+			delete temp;
+			m_size--;
+			return true;
+		}
+		else if (temp->getValue() == val) {
+			Node* temp2 = temp->getPrev();
+			Node* temp3 = temp->getNext();
+			temp2->setNext(temp3);
+			temp3->setPrev(temp2);
+			delete temp;
+			m_size--;
+			return true;
+		}
+		
+		temp = temp->getNext();
+		pos++;
 	}
 	return false;
 }

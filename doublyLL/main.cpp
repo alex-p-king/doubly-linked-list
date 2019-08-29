@@ -7,7 +7,7 @@ int main() {
 	myList.insert(15);
 	myList.insert(15);
 	myList.insert(15);
-	myList.print();
 	myList.dllDelete(15);
+	myList.print();
 	std::cin.get();
 }
