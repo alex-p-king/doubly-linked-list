@@ -36,6 +36,11 @@ Node * Node::getPrev() const
 	return m_prev;
 }
 
+int Node::getValue() const
+{
+	return m_value;
+}
+
 void Node::setNext(Node * next)
 {
 	m_next = next;

@@ -11,6 +11,7 @@ public:
 
 	Node* getNext()const;
 	Node* getPrev()const;
+	int getValue()const;
 
 	void setNext(Node* next);
 	void setPrev(Node* prev);
