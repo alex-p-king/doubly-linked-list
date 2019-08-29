@@ -45,15 +45,14 @@ bool DoublyLinkedList::dllDelete(int val)
 	int pos = 0;
 	Node* temp = m_front;
 	while (pos < m_size) {
-		if (pos == 0) {
+		if (pos == 0 && (temp->getValue() == val)) {
 			m_front = m_front->getNext();
 			m_front->setPrev(nullptr);
 			delete temp;
 			m_size--;
 			return true;
 		}
-		else if (pos == m_size) {
-			temp = m_back;
+		else if (pos == m_size && (temp->getValue() == val)) {
 			m_back = m_back->getPrev();
 			m_back->setNext(nullptr);
 			delete temp;
@@ -71,6 +70,7 @@ bool DoublyLinkedList::dllDelete(int val)
 		}
 		
 		temp = temp->getNext();
+		temp->printNode();
 		pos++;
 	}
 	return false;
