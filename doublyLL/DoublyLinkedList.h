@@ -6,14 +6,18 @@ public:
 	DoublyLinkedList();
 	~DoublyLinkedList();
 
-	int getSize(); // returns m_size
-	void addFront(int value); // adds a node to the front of the list
-	void addBack(); // adds a node to the end of the list
-	void removeFront(); // removes the node from the front of the list
-	void removeBack(); // removes the last node from the list
-	void remove(int pos); // removes a node at the specified position
-	void insert(int pos, Node node); // inserts a node into the list
-	void printList(); // prints the list to console
+	bool isEmpty(); // Returns true if list is empty or head node is NULL.
+	void insert(int val); // Inserts an element at the end of linked list.
+	void dllDelete(); // Deletes an element given if present and deletes the first occurrence of the duplicate value
+	Node* smallest(); // Returns the smallest node in the list
+	Node* largest(); // Returns the largest node in the list
+	Node* average(); // Finds average of all the elements of the list.
+	void merge2Lists(); // Merges the new list with the old list. New merged list will be sorted in ascending order
+	void print(); // prints all elements of the list
+	DoublyLinkedList reverseList(); // Returns the reversed list of the original list.
+	
+
+	
 	Node* getFront(); // returns the pointer to the front of the list
 	Node* getBack(); // returns the pointer to the back of the list
 

@@ -17,31 +17,57 @@ DoublyLinkedList::~DoublyLinkedList()
 	m_back = nullptr;
 }
 
-int DoublyLinkedList::getSize() 
+bool DoublyLinkedList::isEmpty() 
 {
-	return m_size;
+	return(m_size == 0);
 }
 
-void DoublyLinkedList::addFront(int value) 
+void DoublyLinkedList::insert(int val)
 {
-	if (m_size == 0) {
+	if (this->isEmpty()) {
 		m_front = new Node;
-		m_front->setValue(value);
+		m_front->setValue(val);
+		m_back = m_front;
 		m_size++;
 	}
 	else {
-	Node* temp = new Node;
-	m_front->setPrev(temp);
-	temp->setNext(m_front);
-	m_front = temp;
-	m_front->setValue(value);
-	m_size++;
+		Node* temp = new Node;
+		temp->setValue(val);
+		m_size++;
+		temp->setPrev(m_back);
+		m_back->setNext(temp);
+		m_back = temp; 
+		delete temp;
 	}
 }
 
-void DoublyLinkedList::printList() 
+void DoublyLinkedList::dllDelete()
 {
-	
+
+}
+
+Node* DoublyLinkedList::smallest() 
+{
+	return nullptr;
+}
+
+Node* DoublyLinkedList::largest() 
+{
+	return nullptr;
+}
+
+Node* DoublyLinkedList::average() 
+{
+	return nullptr;
+}
+
+void DoublyLinkedListmerge2Lists() 
+{
+
+}
+
+void DoublyLinkedList::print() 
+{
 	if (m_size == 0) {
 		std::cout << "List is empty" << "\n";
 	}
@@ -55,6 +81,10 @@ void DoublyLinkedList::printList()
 			temp = temp->getNext();
 		}
 	}
-	
+}
+
+DoublyLinkedList DoublyLinkedList::reverseList() 
+{
+	return *this;
 }
 
