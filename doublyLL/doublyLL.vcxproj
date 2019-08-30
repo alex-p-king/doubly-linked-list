@@ -115,11 +115,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="DllDriver.cpp" />
     <ClCompile Include="DoublyLinkedList.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Node.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DllDriver.h" />
     <ClInclude Include="DoublyLinkedList.h" />
     <ClInclude Include="Node.h" />
   </ItemGroup>
