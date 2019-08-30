@@ -96,7 +96,17 @@ int DoublyLinkedList::smallest()
 
 int DoublyLinkedList::largest() 
 {
-	return 1;
+	Node* temp = m_front->getNext();
+	int largest = m_front->getValue();
+	for (int i = 1; i < m_size; i++) {
+		if (temp->getValue() > largest) {
+			largest = temp->getValue();
+		}
+		temp = temp->getNext();
+	}
+
+	std::cout << largest << "\n";
+	return largest;
 }
 
 int DoublyLinkedList::average() 
