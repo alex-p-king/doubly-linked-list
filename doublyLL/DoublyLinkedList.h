@@ -9,9 +9,9 @@ public:
 	bool isEmpty(); // Returns true if list is empty or head node is NULL.
 	void insert(int val); // Inserts an element at the end of linked list.
 	bool dllDelete(int val); // Deletes an element given if present and deletes the first occurrence of the duplicate value
-	Node* smallest(); // Returns the smallest node in the list
-	Node* largest(); // Returns the largest node in the list
-	Node* average(); // Finds average of all the elements of the list.
+	int smallest(); // Returns the smallest node in the list
+	int largest(); // Returns the largest node in the list
+	int average(); // Finds average of all the elements of the list.
 	void merge2Lists(); // Merges the new list with the old list. New merged list will be sorted in ascending order
 	void print(); // prints all elements of the list
 	DoublyLinkedList reverseList(); // Returns the reversed list of the original list.

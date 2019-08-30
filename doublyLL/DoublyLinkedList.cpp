@@ -79,19 +79,29 @@ bool DoublyLinkedList::dllDelete(int val)
 	return false;
 }
 
-Node* DoublyLinkedList::smallest() 
+int DoublyLinkedList::smallest() 
 {
-	return nullptr;
+	Node* temp = m_front->getNext();
+	int smallest = m_front->getValue();
+	for (int i = 1; i < m_size; i++) {
+		if (temp->getValue() < smallest) {
+			smallest = temp->getValue();
+		}
+		temp = temp->getNext();
+	}
+	
+	std::cout << smallest << "\n";
+	return smallest;
 }
 
-Node* DoublyLinkedList::largest() 
+int DoublyLinkedList::largest() 
 {
-	return nullptr;
+	return 1;
 }
 
-Node* DoublyLinkedList::average() 
+int DoublyLinkedList::average() 
 {
-	return nullptr;
+	return 1;
 }
 
 void DoublyLinkedListmerge2Lists() 
