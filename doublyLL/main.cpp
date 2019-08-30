@@ -9,8 +9,9 @@ int main() {
 	myList.insert(3);
 	myList.insert(4);
 	myList.insert(5);
-	myList.smallest();
-	myList.average();
-	//myList.print();
+	myList.print();
+	std::cout << "\n";
+	myList.reverseList();
+	myList.print();
 	std::cin.get();
 }

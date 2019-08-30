@@ -17,6 +17,7 @@ public:
 	void setPrev(Node* prev);
 	void setValue(int val);
 	void printNode();
+	void swapPointers();
 
 private:
 	int m_value = 0;

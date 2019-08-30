@@ -60,3 +60,9 @@ void Node::printNode()
 {
 	std::cout << m_value << " ";
 }
+
+void Node::swapPointers() {
+	Node* temp = m_prev;
+	m_prev = m_next;
+	m_next = temp;
+}

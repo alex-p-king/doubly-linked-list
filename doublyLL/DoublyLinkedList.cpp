@@ -143,8 +143,14 @@ void DoublyLinkedList::print()
 	}
 }
 
-DoublyLinkedList DoublyLinkedList::reverseList() 
+void DoublyLinkedList::reverseList() 
 {
-	return *this;
+	Node* temp = m_front;
+	m_front = m_back;
+	m_back = temp;
+	for (int i = 0; i < m_size; i++) {
+		temp->swapPointers();
+		temp = temp->getPrev();
+	}
 }
 

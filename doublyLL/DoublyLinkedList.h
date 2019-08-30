@@ -14,7 +14,7 @@ public:
 	double average(); // Finds average of all the elements of the list.
 	void merge2Lists(); // Merges the new list with the old list. New merged list will be sorted in ascending order
 	void print(); // prints all elements of the list
-	DoublyLinkedList reverseList(); // Returns the reversed list of the original list.
+	void reverseList(); // Returns the reversed list of the original list.
 	
 
 	
