@@ -1,8 +1,17 @@
 #include "DllDriver.h"
 #include <string>
-#include <vector>
 
-
+DllDriver::DllDriver() {
+	std::ifstream inFile;
+	inFile.open("data.txt");
+	int el;
+	while (!inFile.eof()) {
+		inFile >> el;
+		m_list.insert(el);
+	}
+	m_list.print();
+	std::cout << std::endl;
+}
 void DllDriver::run()
 {
 
@@ -97,20 +106,21 @@ void DllDriver::option6()
 		std::cout << "continue ? (y/n): ";
 		std::cin >> cont;
 		if (cont == 'n') {
+			list.insert(el);
 			quit = true;
 		}
 		else {
 			list.insert(el);
 		}
 	}
-	DoublyLinkedList mergedList = m_list.merge2Lists(list);
-	mergedList.print();
+	m_list = m_list.merge2Lists(list);
 	
 }
 
 void DllDriver::option7()
 {
 	m_list.print();
+	std::cout << std::endl;
 }
 
 void DllDriver::option8()

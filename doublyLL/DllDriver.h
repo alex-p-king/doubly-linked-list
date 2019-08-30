@@ -1,8 +1,10 @@
 #pragma once
 #include "DoublyLinkedList.h"
+#include <fstream>
 class DllDriver
 {
 public:
+	DllDriver();
 	int* m_commandList;
 	bool m_quit = false;
 	int m_selection;
@@ -18,6 +20,7 @@ public:
 	void option8();
 private:
 	DoublyLinkedList m_list;
+	DoublyLinkedList* m_list2;
 
 };
 
