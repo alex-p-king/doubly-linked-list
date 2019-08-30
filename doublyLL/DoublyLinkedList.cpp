@@ -17,7 +17,7 @@ DoublyLinkedList::~DoublyLinkedList()
 	m_back = nullptr;
 }
 
-bool DoublyLinkedList::isEmpty() 
+bool DoublyLinkedList::isEmpty()
 {
 	return(m_size == 0);
 }
@@ -33,44 +33,47 @@ void DoublyLinkedList::insert(int val)
 	else {
 		Node* temp = new Node;
 		temp->setValue(val);
-		m_size++;
 		temp->setPrev(m_back);
 		m_back->setNext(temp);
-		m_back = temp; 
+		m_back = temp;
+		m_size++;
 	}
 }
 
 bool DoublyLinkedList::dllDelete(int val)
 {
-	int pos = 0;
 	Node* temp = m_front;
-	while (pos < m_size) {
-		if (pos == 0 && (temp->getValue() == val)) {
-			m_front = m_front->getNext();
-			m_front->setPrev(nullptr);
-			delete temp;
-			m_size--;
-			return true;
+	int pos = 0;
+	for (int i = 0; i < m_size; i++) {
+		if (temp->getValue() == val) {
+			if (pos == 0) {
+				m_front = m_front->getNext();
+				m_front->setPrev(nullptr);
+				delete temp;
+				m_size--;
+				return true;
+			}
+			else if (pos == m_size - 1) {
+				m_back = m_back->getPrev();
+				m_back->setNext(nullptr);
+				delete temp;
+				m_size--;
+				return true;
+			}
+			else {
+				Node* temp2;
+				Node* temp3;
+				temp2 = temp3 = temp;
+				temp2 = temp2->getPrev();
+				temp3 = temp3->getNext();
+				temp2->setNext(temp3);
+				temp3->setPrev(temp2);
+				delete temp;
+				m_size--;
+				return true;
+			}
 		}
-		else if (pos == m_size && (temp->getValue() == val)) {
-			m_back = m_back->getPrev();
-			m_back->setNext(nullptr);
-			delete temp;
-			m_size--;
-			return true;
-		}
-		else if (temp->getValue() == val) {
-			Node* temp2 = temp->getPrev();
-			Node* temp3 = temp->getNext();
-			temp2->setNext(temp3);
-			temp3->setPrev(temp2);
-			delete temp;
-			m_size--;
-			return true;
-		}
-		
 		temp = temp->getNext();
-		temp->printNode();
 		pos++;
 	}
 	return false;

@@ -4,11 +4,12 @@
 
 int main() {
 	DoublyLinkedList myList;
-	myList.insert(15);
-	myList.insert(16);
-	myList.insert(17);
-	myList.insert(18);
-	myList.dllDelete(17);
+	myList.insert(0);
+	myList.insert(1);
+	myList.insert(2);
+	myList.insert(3);
+	myList.insert(4);
+	myList.dllDelete(0);
 	myList.print();
 	std::cin.get();
 }
