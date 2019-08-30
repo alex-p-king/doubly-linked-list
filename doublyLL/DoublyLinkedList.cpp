@@ -109,9 +109,16 @@ int DoublyLinkedList::largest()
 	return largest;
 }
 
-int DoublyLinkedList::average() 
+double DoublyLinkedList::average() 
 {
-	return 1;
+	Node* temp = m_front->getNext();
+	double avg = m_front->getValue();
+	for (int i = 1; i < m_size; i++) {
+		avg += temp->getValue();
+		temp = temp->getNext();
+	}
+	std::cout << (avg / m_size) << "\n";
+	return (avg / m_size);
 }
 
 void DoublyLinkedListmerge2Lists() 
