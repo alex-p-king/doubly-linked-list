@@ -6,20 +6,6 @@ Node::Node()
 	m_prev = nullptr;
 }
 
-Node::Node(Node * n, bool next, int val)
-{
-	(next == true) ? (m_next = n) : (m_prev = n);
-	m_value = val;
-	
-}
-
-Node::Node(Node * p, Node * n, int val)
-{
-	m_next = n;
-	m_prev = p;
-	m_value = val;
-}
-
 Node::~Node()
 {
 	m_next = nullptr;

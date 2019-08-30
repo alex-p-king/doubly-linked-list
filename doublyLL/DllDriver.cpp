@@ -87,12 +87,25 @@ void DllDriver::option5()
 
 void DllDriver::option6()
 {
-	std::string input;
-	std::cout << "Enter a list to be merged: ";
-	std::cin >> input;
-	for (int i = 0; i < input.length(); i++) {
-		std::cout << input[i];
+	bool quit = false;
+	char cont = 'y';
+	DoublyLinkedList list;
+	int el;
+	while (quit == false) {
+		std::cout << "Enter a number to add to the second list: ";
+		std::cin >> el;
+		std::cout << "continue ? (y/n): ";
+		std::cin >> cont;
+		if (cont == 'n') {
+			quit = true;
+		}
+		else {
+			list.insert(el);
+		}
 	}
+	DoublyLinkedList mergedList = m_list.merge2Lists(list);
+	mergedList.print();
+	
 }
 
 void DllDriver::option7()

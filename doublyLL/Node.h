@@ -5,8 +5,6 @@ class Node
 {
 public:
 	Node();
-	Node(Node* n, bool next, int val);
-	Node(Node* p, Node* n, int val);
 	~Node();
 
 	Node* getNext()const;
