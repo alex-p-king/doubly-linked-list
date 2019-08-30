@@ -121,9 +121,38 @@ double DoublyLinkedList::average()
 	return (avg / m_size);
 }
 
-void DoublyLinkedListmerge2Lists() 
+DoublyLinkedList DoublyLinkedList::merge2Lists(DoublyLinkedList l2) 
 {
-
+	Node* temp = m_front;
+	Node* temp2 = l2.m_front;
+	const int size = m_size + l2.m_size;
+	int* arr = new int[size];
+	for (int i = 0; i < size; i++) {
+		if (i < m_size) {
+			arr[i] = temp->getValue();
+			temp = temp->getNext();
+		}
+		else {
+			arr[i] = temp2->getValue();
+			temp2 = temp2->getNext();
+		}
+	}
+	// sort arr in ascending order then add into new list and return
+	DoublyLinkedList list;
+	int t;
+	for (int i = 0; i < size; i++) {
+		for (int j = i+1; j < size; j++) {
+			if (arr[j] < arr[i]) {
+				t = arr[i];
+				arr[i] = arr[j];
+				arr[j] = t;
+			}
+		}
+		list.insert(arr[i]);
+	}
+	
+	delete[] arr;
+	return list;
 }
 
 void DoublyLinkedList::print() 
@@ -152,5 +181,9 @@ void DoublyLinkedList::reverseList()
 		temp->swapPointers();
 		temp = temp->getPrev();
 	}
+}
+
+int DoublyLinkedList::getSize() {
+	return m_size;
 }
 

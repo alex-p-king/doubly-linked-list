@@ -12,10 +12,10 @@ public:
 	int smallest(); // Returns the smallest node in the list
 	int largest(); // Returns the largest node in the list
 	double average(); // Finds average of all the elements of the list.
-	void merge2Lists(); // Merges the new list with the old list. New merged list will be sorted in ascending order
+	DoublyLinkedList merge2Lists(DoublyLinkedList l2); // Merges the new list with the old list. New merged list will be sorted in ascending order
 	void print(); // prints all elements of the list
 	void reverseList(); // Returns the reversed list of the original list.
-	
+	int getSize(); // returns m_size;
 
 	
 	Node* getFront(); // returns the pointer to the front of the list
