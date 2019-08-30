@@ -110,10 +110,10 @@ void DllDriver::option6()
 
 void DllDriver::option7()
 {
-
+	m_list.print();
 }
 
 void DllDriver::option8()
 {
-
+	m_list.reverseList();
 }
