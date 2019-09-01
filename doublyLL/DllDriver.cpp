@@ -10,8 +10,6 @@ DllDriver::DllDriver() {
 		inFile >> el;
 		m_list.insert(el);
 	}
-	m_list.print();
-	std::cout << std::endl;
 }
 void DllDriver::run()
 {
@@ -119,7 +117,6 @@ void DllDriver::merge()
 	std::getline(std::cin, uStr);
 	DoublyLinkedList list = extractInt(uStr);
 	m_list = m_list.merge2Lists(list);
-	m_list.print();
 }
 
 void DllDriver::print()
