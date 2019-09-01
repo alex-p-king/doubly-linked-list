@@ -120,7 +120,6 @@ void DllDriver::merge()
 	DoublyLinkedList list = extractInt(uStr);
 	m_list = m_list.merge2Lists(list);
 	m_list.print();
-	
 }
 
 void DllDriver::print()
