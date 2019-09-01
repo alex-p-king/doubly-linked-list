@@ -1,5 +1,6 @@
 #include "DllDriver.h"
 #include <string>
+#include <sstream>
 
 DllDriver::DllDriver() {
 	std::ifstream inFile;
@@ -126,4 +127,18 @@ void DllDriver::option7()
 void DllDriver::option8()
 {
 	m_list.reverseList();
+}
+
+void extractInt(std::string uString) {
+	std::stringstream ss;
+	ss << uString;
+	std::string temp;
+	int found;
+	while (!ss.eof()) {
+		ss >> temp;
+		if (std::stringstream(temp) >> found) {
+			std::cout << found << " ";
+			temp = " ";
+		}
+	}
 }

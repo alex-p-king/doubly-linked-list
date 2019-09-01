@@ -18,6 +18,7 @@ public:
 	void option6();
 	void option7();
 	void option8();
+	void extractInt(std::string uString);
 private:
 	DoublyLinkedList m_list;
 	DoublyLinkedList* m_list2;
