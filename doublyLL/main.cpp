@@ -7,4 +7,5 @@
 int main() {
 	DllDriver driver;
 	driver.run();
+	return 0;
 }

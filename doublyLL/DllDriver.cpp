@@ -20,28 +20,28 @@ void DllDriver::run()
 		printMenu();
 		std::cin >> m_selection;
 		if (m_selection == 1) {
-			option1();
+			insert();
 		}
 		else if (m_selection == 2) {
-			option2();
+			dllDelete();
 		}
 		else if (m_selection == 3) {
-			option3();
+			smallest();
 		}
 		else if (m_selection == 4) {
-			option4();
+			largest();
 		}
 		else if (m_selection == 5) {
-			option5();
+			average();
 		}
 		else if (m_selection == 6) {
-			option6();
+			merge();
 		}
 		else if (m_selection == 7) {
-			option7();
+			print();
 		}
 		else if (m_selection == 8) {
-			option8();
+			reverse();
 		}
 		else if (m_selection == 9) {
 			m_quit = true;
@@ -65,7 +65,7 @@ void DllDriver::printMenu()
 	std::cout << "9. " << "Exit\n";
 }
 
-void DllDriver::option1()
+void DllDriver::insert()
 {
 	int el;
 	std::cout << "Enter an element to be inserted: ";
@@ -73,7 +73,7 @@ void DllDriver::option1()
 	m_list.insert(el);
 }
 
-void DllDriver::option2()
+void DllDriver::dllDelete()
 {
 	int num;
 	std::cout << "Enter the number to be deleted: ";
@@ -81,64 +81,56 @@ void DllDriver::option2()
 	m_list.dllDelete(num);
 }
 
-void DllDriver::option3()
+void DllDriver::smallest()
 {
 	std::cout << "The smallest element is: " << m_list.smallest() << std::endl;
 }
 
-void DllDriver::option4()
+void DllDriver::largest()
 {
 	std::cout << "The largest element is: " << m_list.largest() << std::endl;
 }
-void DllDriver::option5()
+void DllDriver::average()
 {
 	std::cout << "The average element is: " << m_list.average() << std::endl;
 }
 
-void DllDriver::option6()
-{
-	bool quit = false;
-	char cont = 'y';
+DoublyLinkedList DllDriver::extractInt(std::string uString) {
+	std::stringstream ss;
 	DoublyLinkedList list;
-	int el;
-	while (quit == false) {
-		std::cout << "Enter a number to add to the second list: ";
-		std::cin >> el;
-		std::cout << "continue ? (y/n): ";
-		std::cin >> cont;
-		if (cont == 'n') {
-			list.insert(el);
-			quit = true;
+	ss << uString;
+	std::string temp;
+	int n;
+	while (!ss.eof()) {
+		ss >> temp;
+		if (std::stringstream(temp) >> n) {
+			list.insert(n);
 		}
-		else {
-			list.insert(el);
-		}
+		temp = " ";
 	}
+	return(list);
+}
+
+void DllDriver::merge()
+{
+	std::string uStr;
+	std::cout << "Enter a list to be merged: ";
+	std::cin.ignore();
+	std::getline(std::cin, uStr);
+	DoublyLinkedList list = extractInt(uStr);
 	m_list = m_list.merge2Lists(list);
+	m_list.print();
 	
 }
 
-void DllDriver::option7()
+void DllDriver::print()
 {
 	m_list.print();
 	std::cout << std::endl;
 }
 
-void DllDriver::option8()
+void DllDriver::reverse()
 {
 	m_list.reverseList();
 }
 
-void extractInt(std::string uString) {
-	std::stringstream ss;
-	ss << uString;
-	std::string temp;
-	int found;
-	while (!ss.eof()) {
-		ss >> temp;
-		if (std::stringstream(temp) >> found) {
-			std::cout << found << " ";
-			temp = " ";
-		}
-	}
-}
